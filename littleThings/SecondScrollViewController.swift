@@ -14,6 +14,8 @@ class SecondScrollViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        print("do draw")
     }
 
     override func didReceiveMemoryWarning() {

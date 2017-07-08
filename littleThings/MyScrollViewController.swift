@@ -16,6 +16,9 @@ class MyScrollViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        let view = UIView(frame: CGRect(origin: CGPoint(x: 10, y: 50), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
+        view.backgroundColor = UIColor.red
+        myscrollView.addSubview(view)
         print("herer")
     }
 
