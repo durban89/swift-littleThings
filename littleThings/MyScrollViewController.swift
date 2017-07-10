@@ -14,11 +14,23 @@ class MyScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        myscrollView.backgroundColor = UIColor.blue
+        print(myscrollView.frame.origin)
+        
         // Do any additional setup after loading the view.
         
-        let view = UIView(frame: CGRect(origin: CGPoint(x: 10, y: 50), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
+        let view = UIView(frame: CGRect(origin: CGPoint(x: 10, y: -60), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
         view.backgroundColor = UIColor.red
         myscrollView.addSubview(view)
+        
+        let view2 = UIView(frame: CGRect(origin: CGPoint(x: 10, y: 20), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
+        view2.backgroundColor = UIColor.red
+        myscrollView.addSubview(view2)
+        
+        let view3 = UIView(frame: CGRect(origin: CGPoint(x: 12, y: -61), size: CGSize(width: UIScreen.main.bounds.width, height: 30)))
+        view3.backgroundColor = UIColor(red:1.0, green:1.0, blue:0.0, alpha:0.5)
+        myscrollView.addSubview(view3)
+        
         print("herer")
     }
 
