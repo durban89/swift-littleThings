@@ -14,19 +14,20 @@ class MyScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        myscrollView.backgroundColor = UIColor.blue
+//        myscrollView.backgroundColor = UIColor.blue
         print(myscrollView.frame.origin)
         
         // Do any additional setup after loading the view.
+        // 24小时 24条线
+        for i in 0..<24 {
+            let y:CGFloat = CGFloat(-60 + i * 44)
+            
+            let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
+            lineView.backgroundColor = UIColor(red:246.0 / 255.0, green:246.0 / 255.0, blue:246.0 / 255.0, alpha:1)
+            myscrollView.addSubview(lineView)
+        }
         
-        let view = UIView(frame: CGRect(origin: CGPoint(x: 10, y: -60), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
-        view.backgroundColor = UIColor.red
-        myscrollView.addSubview(view)
-        
-        let view2 = UIView(frame: CGRect(origin: CGPoint(x: 10, y: 20), size: CGSize(width: UIScreen.main.bounds.width, height: 1)))
-        view2.backgroundColor = UIColor.red
-        myscrollView.addSubview(view2)
-        
+        // 任务时间跨度
         let view3 = UIView(frame: CGRect(origin: CGPoint(x: 12, y: -61), size: CGSize(width: UIScreen.main.bounds.width, height: 30)))
         view3.backgroundColor = UIColor(red:1.0, green:1.0, blue:0.0, alpha:0.5)
         myscrollView.addSubview(view3)
