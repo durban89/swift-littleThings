@@ -21,6 +21,16 @@ class MyScrollViewController: UIViewController {
         // 24小时 24条线
         for i in 0..<24 {
             let y:CGFloat = CGFloat(-60 + i * 44)
+            var number = ""
+            if(i >= 10){
+                number = String(i)
+            } else {
+                number = "0\(String(i))"
+            }
+            
+            let labelView = UILabel(frame: CGRect(origin: CGPoint(x: 20, y: y + 13), size: CGSize(width: 60, height: 20)))
+            labelView.text = "\(number):00"
+            myscrollView.addSubview(labelView)
             
             let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
             lineView.backgroundColor = UIColor(red:246.0 / 255.0, green:246.0 / 255.0, blue:246.0 / 255.0, alpha:1)
