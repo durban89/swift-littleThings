@@ -32,7 +32,7 @@ class MyScrollViewController: UIViewController {
             labelView.text = "\(number):00"
             myscrollView.addSubview(labelView)
             
-            let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
+            let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y + 44), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
             lineView.backgroundColor = UIColor(red:246.0 / 255.0, green:246.0 / 255.0, blue:246.0 / 255.0, alpha:1)
             myscrollView.addSubview(lineView)
         }
@@ -41,6 +41,8 @@ class MyScrollViewController: UIViewController {
         let view3 = UIView(frame: CGRect(origin: CGPoint(x: 12, y: -61), size: CGSize(width: UIScreen.main.bounds.width, height: 30)))
         view3.backgroundColor = UIColor(red:1.0, green:1.0, blue:0.0, alpha:0.5)
         myscrollView.addSubview(view3)
+        
+        myscrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
         
         print("herer")
     }
