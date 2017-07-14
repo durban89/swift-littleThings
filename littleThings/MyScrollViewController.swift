@@ -16,6 +16,7 @@ class MyScrollViewController: UIViewController {
 
 //        myscrollView.backgroundColor = UIColor.blue
         print(myscrollView.frame.origin)
+        var myscrollViewContentSizeWidth:CGFloat = 0
         
         // Do any additional setup after loading the view.
         // 24小时 24条线
@@ -35,14 +36,20 @@ class MyScrollViewController: UIViewController {
             let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y + 44), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
             lineView.backgroundColor = UIColor(red:246.0 / 255.0, green:246.0 / 255.0, blue:246.0 / 255.0, alpha:1)
             myscrollView.addSubview(lineView)
+            
+            myscrollViewContentSizeWidth = lineView.frame.origin.y + lineView.frame.size.height
         }
         
-        // 任务时间跨度
-        let view3 = UIView(frame: CGRect(origin: CGPoint(x: 12, y: -61), size: CGSize(width: UIScreen.main.bounds.width, height: 30)))
-        view3.backgroundColor = UIColor(red:1.0, green:1.0, blue:0.0, alpha:0.5)
-        myscrollView.addSubview(view3)
+        print(myscrollViewContentSizeWidth)
         
-        myscrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: 2000)
+        myscrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: myscrollViewContentSizeWidth)
+        
+        // 任务时间跨度
+        let taskView = UIView(frame: CGRect(origin: CGPoint(x: 99, y: 196), size: CGSize(width: 176, height: 44)))
+        taskView.backgroundColor = UIColor(red:100/255.0, green:199/255.0, blue:153/255.0, alpha:1/1.0)
+        
+        
+        myscrollView.addSubview(taskView)
         
         print("herer")
     }
