@@ -44,12 +44,45 @@ class MyScrollViewController: UIViewController {
         
         myscrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: myscrollViewContentSizeWidth)
         
-        // 任务时间跨度
-        let taskView = UIView(frame: CGRect(origin: CGPoint(x: 99, y: 196), size: CGSize(width: 176, height: 44)))
+        // 任务时间跨度 - 1
+        let taskView = UIView(frame: CGRect(origin: CGPoint(x: 100, y: 196), size: CGSize(width: 176, height: 44)))
         taskView.backgroundColor = UIColor(red:100/255.0, green:199/255.0, blue:153/255.0, alpha:1/1.0)
         
+        let titleLabelView = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: 4), size: CGSize(width: 98, height: 14)));
+        titleLabelView.text = "设计组内部例会";
+        titleLabelView.font = UIFont(name: "PingFangSC-Regular", size: 14)
+        titleLabelView.textColor = UIColor(red:255 / 255.0, green:255 / 255.0, blue:255 / 255.0, alpha:1/1.0)
+        
+        let addressLabelView = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: taskView.frame.size.height - 20), size: CGSize(width: 60, height: 10)));
+        addressLabelView.text = "在东八楼 801";
+        addressLabelView.font = UIFont(name: "PingFangSC-Regular", size: 10)
+        addressLabelView.textColor = UIColor(red:255 / 255.0, green:255 / 255.0, blue:255 / 255.0, alpha:1/1.0)
+        
+        taskView.addSubview(titleLabelView)
+        taskView.addSubview(addressLabelView)
+        taskView.layer.cornerRadius = 5
+        
+        // 任务时间跨度 - 2
+        
+        let taskView2 = UIView(frame: CGRect(origin: CGPoint(x: 100, y: 306), size: CGSize(width: 176, height: 88)))
+        taskView2.backgroundColor = UIColor(red:40/255.0, green:170/255.0, blue:232/255.0, alpha:1/1.0)
+        
+        let titleLabelView2 = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: 4), size: CGSize(width: 98, height: 14)));
+        titleLabelView2.text = "吃饭、午休";
+        titleLabelView2.font = UIFont(name: "PingFangSC-Regular", size: 14)
+        titleLabelView2.textColor = UIColor(red:255 / 255.0, green:255 / 255.0, blue:255 / 255.0, alpha:1/1.0)
+        
+        let addressLabelView2 = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: taskView2.frame.size.height - 20), size: CGSize(width: 60, height: 10)));
+        addressLabelView2.text = "在东八楼 801";
+        addressLabelView2.font = UIFont(name: "PingFangSC-Regular", size: 10)
+        addressLabelView2.textColor = UIColor(red:255 / 255.0, green:255 / 255.0, blue:255 / 255.0, alpha:1/1.0)
+        
+        taskView2.addSubview(titleLabelView2)
+        taskView2.addSubview(addressLabelView2)
+        taskView2.layer.cornerRadius = 5
         
         myscrollView.addSubview(taskView)
+        myscrollView.addSubview(taskView2)
         
         print("herer")
     }
