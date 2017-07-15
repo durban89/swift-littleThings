@@ -13,8 +13,20 @@ class MyScrollViewController: UIViewController {
     @IBOutlet weak var myscrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(myscrollView.frame.origin)
+        
+//        NSDate
+        let time = 1500127809
+        let currentDate = Date(timeIntervalSince1970: TimeInterval(time))
+        print("currentDate = ", currentDate)
+//        CFDate
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+        let dateString = dateFormatter.string(from: currentDate)
+        print("dateString = " + dateString)
+        
+//        let time = 1500127809
+//        print(time.getTimeString())
+        
         var myscrollViewContentSizeWidth:CGFloat = 0
         
         // 时间跨度的间隔距离
