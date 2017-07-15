@@ -14,14 +14,18 @@ class MyScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        myscrollView.backgroundColor = UIColor.blue
         print(myscrollView.frame.origin)
         var myscrollViewContentSizeWidth:CGFloat = 0
+        
+        // 时间跨度的间隔距离
+        let hourIntervalDistance:CGFloat = 44
+        let minuteIntervalDistance:CGFloat = hourIntervalDistance / 60
+        print(minuteIntervalDistance)
         
         // Do any additional setup after loading the view.
         // 24小时 24条线
         for i in 0..<24 {
-            let y:CGFloat = CGFloat(-60 + i * 44)
+            let y:CGFloat = CGFloat(-60 + i * Int(hourIntervalDistance)) + hourIntervalDistance
             var number = ""
             if(i >= 10){
                 number = String(i)
@@ -29,11 +33,11 @@ class MyScrollViewController: UIViewController {
                 number = "0\(String(i))"
             }
             
-            let labelView = UILabel(frame: CGRect(origin: CGPoint(x: 20, y: y + 13), size: CGSize(width: 60, height: 20)))
+            let labelView = UILabel(frame: CGRect(origin: CGPoint(x: 20, y: y - hourIntervalDistance + 13), size: CGSize(width: 60, height: 20)))
             labelView.text = "\(number):00"
             myscrollView.addSubview(labelView)
             
-            let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y + 44), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
+            let lineView = UIView(frame: CGRect(origin: CGPoint(x: 20, y: y), size: CGSize(width: UIScreen.main.bounds.width - 40, height: 1)))
             lineView.backgroundColor = UIColor(red:246.0 / 255.0, green:246.0 / 255.0, blue:246.0 / 255.0, alpha:1)
             myscrollView.addSubview(lineView)
             
