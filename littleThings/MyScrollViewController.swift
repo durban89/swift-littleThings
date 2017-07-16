@@ -14,18 +14,28 @@ class MyScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NSDate
-        let time = 1500127809
-        let currentDate = Date(timeIntervalSince1970: TimeInterval(time))
-        print("currentDate = ", currentDate)
-//        CFDate
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
-        let dateString = dateFormatter.string(from: currentDate)
-        print("dateString = " + dateString)
+        let startTime = "1500127809"
+        let startDate = Date(timeIntervalSince1970: TimeInterval(startTime)!)
+        let startDateHourFormatter = DateFormatter()
+        startDateHourFormatter.dateFormat = "H"
+        let startHourString = startDateHourFormatter.string(from: startDate)
+        print("startHourString = " + startHourString)
+        let startDateMinuteFormatter = DateFormatter()
+        startDateMinuteFormatter.dateFormat = "m"
+        let startMinuteString = startDateMinuteFormatter.string(from: startDate)
+        print("startMinuteString = " + startMinuteString)
         
-//        let time = 1500127809
-//        print(time.getTimeString())
+        
+        let endTime = "1500128809"
+        let endDate = Date(timeIntervalSince1970: TimeInterval(endTime)!)
+        let endDateHourFormatter = DateFormatter()
+        endDateHourFormatter.dateFormat = "H"
+        let endHourString = endDateHourFormatter.string(from: endDate)
+        print("endHourString = " + endHourString)
+        let endDateMinuteFormatter = DateFormatter()
+        endDateMinuteFormatter.dateFormat = "m"
+        let endMinuteString = endDateMinuteFormatter.string(from: endDate)
+        print("endMinuteString = " + endMinuteString)
         
         var myscrollViewContentSizeWidth:CGFloat = 0
         
@@ -36,7 +46,7 @@ class MyScrollViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         // 24小时 24条线
-        for i in 0..<24 {
+        for i in 0..<25 {
             let y:CGFloat = CGFloat(-60 + i * Int(hourIntervalDistance)) + hourIntervalDistance
             var number = ""
             if(i >= 10){
@@ -58,10 +68,12 @@ class MyScrollViewController: UIViewController {
         
         print(myscrollViewContentSizeWidth)
         
+        let taskViewStartY = CGFloat(-60 + CGFloat(Double(startHourString)!) * CGFloat(hourIntervalDistance)) + hourIntervalDistance + CGFloat(Double(startMinuteString)!) * CGFloat(minuteIntervalDistance)
+        
         myscrollView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: myscrollViewContentSizeWidth)
         
         // 任务时间跨度 - 1
-        let taskView = UIView(frame: CGRect(origin: CGPoint(x: 100, y: 196), size: CGSize(width: 176, height: 44)))
+        let taskView = UIView(frame: CGRect(origin: CGPoint(x: 100, y: taskViewStartY), size: CGSize(width: 176, height: 44)))
         taskView.backgroundColor = UIColor(red:100/255.0, green:199/255.0, blue:153/255.0, alpha:1/1.0)
         
         let titleLabelView = UILabel(frame: CGRect(origin: CGPoint(x: 10, y: 4), size: CGSize(width: 98, height: 14)));
